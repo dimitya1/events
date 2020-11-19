@@ -21,4 +21,9 @@ Route::group(['prefix' => 'v1', 'middleware' => ['api']], function () {
         Route::get('{event}', 'EventsController@getEvent');
     });
 
+    // Comments
+    Route::group(['prefix' => 'comments'], function () {
+        Route::get('', 'EventsController@getAll');
+        Route::get('{comment}', 'EventsController@getEvent');
+    });
 });

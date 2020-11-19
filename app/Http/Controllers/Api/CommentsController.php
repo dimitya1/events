@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Entities\Event;
-use App\Services\Event\EventFacade;
+use App\Models\Entities\Comment;
+use App\Services\Comment\CommentFacade;
+/////////****************
 use App\Transformers\EventsTransformer;
 
-class EventsController extends BaseController
+class CommentsController extends BaseController
 {
     /**
      * Get all active events
@@ -28,8 +29,7 @@ class EventsController extends BaseController
      * @return \Illuminate\Http\JsonResponse
      * @throws \App\Exceptions\TransformerException
      */
-    public function getEvent($eventId) {
-        $event = EventFacade::get($eventId);
+    public function getEvent(Event $event) {
         if(!$event->is_active)
             return $this->error('EVENT_ERRORS', 'EVENT_NOT_FOUND');
 

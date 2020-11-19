@@ -160,6 +160,8 @@ return [
          */
         \App\Repositories\Event\EventRepositoryServiceProvider::class,
         \App\Services\Event\EventServiceServiceProvider::class,
+        \App\Repositories\Comment\CommentRepositoryServiceProvider::class,
+        \App\Services\Comment\CommentServiceServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -224,7 +226,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         // Entities Facades
-        'ArticleFacade' => App\Services\Article\ArticleFacade::class,
+        'EventFacadeeee' => App\Services\Event\EventFacade::class,
+        'CommentFacedeee' => App\Services\Comment\CommentFacade::class,
 
         'ApiErrorHandlerFacade' => App\Support\ApiErrorHandlerFacade::class,
     ],
