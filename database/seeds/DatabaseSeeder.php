@@ -11,6 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(SuperAdminsTableSeeder::class);
+//         $this->call(SuperAdminsTableSeeder::class);
+        $comments = factory(\App\Models\Entities\Comment::class, 30)->create();
+        factory(\App\Models\Entities\Event::class, 15)->create()->each(function ($event) use ($comments) {
+            $event->comments()->attach($comments->pluck('id')->random(rand(2, 5)));
+        });
     }
 }

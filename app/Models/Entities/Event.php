@@ -47,4 +47,9 @@ class Event extends Model
         'start_time',
         'end_time',
     ];
+
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class)->withTimestamps();
+    }
 }
