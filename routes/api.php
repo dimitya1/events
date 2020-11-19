@@ -23,7 +23,10 @@ Route::group(['prefix' => 'v1', 'middleware' => ['api']], function () {
 
     // Comments
     Route::group(['prefix' => 'comments'], function () {
-        Route::get('', 'EventsController@getAll');
-        Route::get('{comment}', 'EventsController@getEvent');
+        Route::get('', 'CommentsController@getAll');
+        Route::get('{event}', 'CommentsController@getActiveByEventId');
+        Route::delete('{comment}', 'CommentsController@delete');
+        Route::patch('{comment}', 'CommentsController@updateActiveStatus');
+        Route::post('', 'CommentsController@saveItem');
     });
 });

@@ -15,13 +15,18 @@ class CommentService
         $this->commentRepo = $commentRepo;
     }
 
+    public function get($itemId)
+    {
+        return $this->commentRepo->get($itemId);
+    }
+
     /**
      * @param $itemId
      * @return mixed
      */
-    public function get($itemId)
+    public function getActiveByEventId($itemId)
     {
-        return $this->commentRepo->getByEventId($itemId);
+        return $this->commentRepo->getActiveByEventId($itemId);
     }
 
     /**

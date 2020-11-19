@@ -1,0 +1,56 @@
+GET http://localhost/api/v1/events
+Accept: application/json
+Cache-Control: no-cache
+
+
+###
+
+
+GET http://localhost/api/v1/events/1
+Accept: application/json
+Cache-Control: no-cache
+
+
+###
+
+
+GET http://localhost/api/v1/comments
+Accept: application/json
+Cache-Control: no-cache
+
+
+###
+
+GET http://localhost/api/v1/comments/3
+Accept: application/json
+Cache-Control: no-cache
+
+
+###
+
+DELETE http://localhost/api/v1/comments/2
+Accept: application/json
+Content-Type: application/json
+Cache-Control: no-cache
+
+
+###
+
+PATCH http://localhost/api/v1/comments/1
+Accept: application/json
+Content-Type: application/json
+Cache-Control: no-cache
+
+
+###
+
+
+POST http://localhost/api/v1/comments
+Accept: application/json
+Content-Type: application/json
+Cache-Control: no-cache
+
+{"title": "TestCommentTitle", "content": "TestCommentContent"}
+
+
+###

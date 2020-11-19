@@ -6,7 +6,9 @@ use App\Models\Entities\Comment;
 
 interface CommentInterface
 {
-    public function getByEventId(int $itemId);
+    public function get(int $itemId);
+
+    public function getActiveByEventId(int $itemId);
 
     public function saveItem(array $itemData);
 

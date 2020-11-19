@@ -14,21 +14,22 @@ class CommentRepository implements CommentInterface
         $this->model = $item;
     }
 
+    public function get(int $itemId)
+    {
+        return $this->model::find($itemId);
+    }
+
     /**
      * @param int $itemId
      * @return mixed
      */
-    public function getByEventId(int $itemId)
+    public function getActiveByEventId(int $itemId)
     {
-        return $this->model::whereHas('events', function($q) use ($itemId) {
+        return $this->model::where('is_active', 1)->whereHas('events', function($q) use ($itemId) {
             $q->where('event_id', '=', $itemId);
         })->orderBy('created_at', 'DESC')->get();
     }
 
-    /**
-     * @param array $itemData
-     * @return mixed
-     */
     public function saveItem(array $itemData)
     {
         return $this->model->create($itemData);
@@ -53,6 +54,7 @@ class CommentRepository implements CommentInterface
      */
     public function deleteItem(Comment $item)
     {
+        $item->events()->detach();
         return $item->delete();
     }
 
@@ -79,5 +81,4 @@ class CommentRepository implements CommentInterface
     {
         return $item->update(['is_active' => !$item->is_active]);
     }
-
 }
